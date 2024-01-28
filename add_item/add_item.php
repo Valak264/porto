@@ -26,7 +26,7 @@ if ($con->connect_error) {
                 $stmt->execute();
                 $stmt->close();
                 $con->close();
-                echo "Valid";
+                header('location:/project');
             } else {
                 $e = empty($_FILES["picture_file"]["tmp_name"]);
                 echo "Image not Valid" . $e;
