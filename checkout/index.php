@@ -32,8 +32,7 @@
     <div class="container">
       <h1 class="text-center">Checkout</h1>
     </div>
-
-    
+        
   </div>
 </div>
 </body>
