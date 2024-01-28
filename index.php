@@ -67,10 +67,16 @@ $result = $stmt->get_result();
               Price : <?php echo $data['price'];?><br/>
               Stock Available : <?php echo $data['quantity'];?><br/>
             </p>
+            <a href="" class="btn btn-success">Buy</a>
+            <a href="" class="btn btn-warning">Add to Cart</a>
           </div>
         </div>
       </div>
-      <?php }} ?>
+      <?php }} else {?>
+          <div class="container">
+            <h2 class="text-center">Sorry ! There is nothing to show for the momentarily !</h2>
+          </div>
+      <?php } ?>
     </div>
   </div>
 </div>
