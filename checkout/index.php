@@ -1,3 +1,8 @@
+<?php 
+require_once "../config.php";
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +22,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link text-white active" aria-current="page" href="#">Home</a>
+          <a class="nav-link text-white active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="#">About Us</a>
         </li>
+        <div class="me-2 ms-2">
+          <a class="nav-link text-white" href="#">Register</a>
+        </div>
+        <?php if (isset($_SESSION['user'])) { ?>
+        <div class="me-2 ms-2">
+          <a class="nav-link text-white" href="#">Placeholder User</a>
+        </div>
+        <?php 
+          $stmt = $con->prepare("SELECT price FROM product WHERE id = " . $_GET['id']);
+          $stmt->execute();
+          $result = $stmt->get_result();
+          $data = $result->fetch_assoc();
+          $total = $data['price'] * $_GET['quantity']; 
+        } else {
+        ?>
+        <div class="me-2 ms-2">
+          <a class="nav-link text-white" href="#">Login</a>
+        </div> 
+        <?php }?>
       </ul>
     </div>
   </div>
@@ -32,7 +56,9 @@
     <div class="container">
       <h1 class="text-center">Checkout</h1>
     </div>
-        
+    <div class="container">
+      
+    </div>
   </div>
 </div>
 </body>
